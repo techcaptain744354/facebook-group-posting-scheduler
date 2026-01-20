@@ -1,0 +1,78 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madhub.facebookgroupposting">
+
+    <!-- 
+        The <application> element defines the overall characteristics of the app, 
+        including its name, icon, and theme.
+        This powerful configuration allows for seamless integration with Android's 
+        native features and ensures a user-friendly experience.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 
+            Registering the MainActivity, which serves as the primary entry point for the application. 
+            This component facilitates user interaction and enables the scheduling of posts.
+        -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 
+            Registering the AutomationService, which provides continuous background operations.
+            This service enables 24/7 automation for posting management on Facebook groups, 
+            enhancing social media management capabilities with minimal user intervention.
+        -->
+        <service
+            android:name=".AutomationService"
+            android:exported="false" />
+
+    </application>
+
+    <!-- 
+        Permissions are essential for accessing device features and internet connectivity. 
+        The following permissions are declared for optimal functionality:
+    -->
+
+    <!-- 
+        This permission enables the app to access the internet, 
+        allowing it to communicate with Facebook's API for scheduling posts.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 
+        This permission allows the app to access network state,
+        which is crucial for detecting connectivity and ensuring 
+        uninterrupted posting automation.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 
+        This permission permits the app to write to external storage if needed,
+        providing flexibility to manage files related to scheduled content.
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 
+        This permission allows the app to read from external storage,
+        essential for accessing media files that may be attached to scheduled posts.
+    -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>
+```
+
+### Explanation of Key Features:
+1. **MainActivity**: This component is the user's gateway to interact with the Facebook group posting feature, allowing users to set up and manage their scheduled posts conveniently.
+2. **AutomationService**: A robust service that ensures the app runs continuously in the background, executing scheduled posts with reliability and efficiency.
+3. **Permissions**: The configuration includes essential permissions to leverage Android's capabilities, ensuring the app operates smoothly and fulfills its function of managing social media operations seamlessly.
